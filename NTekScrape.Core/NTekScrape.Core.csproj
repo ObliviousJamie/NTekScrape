@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>NTekScrape</RootNamespace>
+    <RootNamespace>NTekScrape.Core</RootNamespace>
   </PropertyGroup>
 
 </Project>

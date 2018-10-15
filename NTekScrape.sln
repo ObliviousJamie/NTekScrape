@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTekScrape", "NTekScrape\NTekScrape.csproj", "{29F6EA1C-B043-4CD2-A2E4-E9EFF36C76BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTekScrape.Core", "NTekScrape.Core\NTekScrape.Core.csproj", "{AF938B38-3378-4E88-90B3-67C8145F1258}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{29F6EA1C-B043-4CD2-A2E4-E9EFF36C76BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29F6EA1C-B043-4CD2-A2E4-E9EFF36C76BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29F6EA1C-B043-4CD2-A2E4-E9EFF36C76BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29F6EA1C-B043-4CD2-A2E4-E9EFF36C76BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF938B38-3378-4E88-90B3-67C8145F1258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF938B38-3378-4E88-90B3-67C8145F1258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF938B38-3378-4E88-90B3-67C8145F1258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF938B38-3378-4E88-90B3-67C8145F1258}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
