@@ -1,4 +1,6 @@
-﻿namespace NTekScrape.Core
+﻿using NTekScrape.Core.interfaces;
+
+namespace NTekScrape.Core
 {
     public class DownloadFactory
     {

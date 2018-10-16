@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NTekScrape.Core.interfaces;
 
 namespace NTekScrape.Core
 {
@@ -11,10 +12,6 @@ namespace NTekScrape.Core
 
         public CharacterExtractor(FrameSource source = FrameSource.Default)
         {
-            _source = source;
-            if (_source == FrameSource.Default)
-                _source = FrameSource.Rbnorway;
-
             _downloader = new DownloadFactory().CreateDownloader(source);
         }
 
