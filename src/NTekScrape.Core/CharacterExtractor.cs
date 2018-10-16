@@ -7,12 +7,11 @@ namespace NTekScrape.Core
 {
     public class CharacterExtractor
     {
-        private readonly FrameSource _source;
-        private ICharacterDownloader _downloader;
+        private readonly ICharacterDownloader _downloader;
 
-        public CharacterExtractor(FrameSource source = FrameSource.Default)
+        public CharacterExtractor(FrameSource source = FrameSource.Default, ICharacterDownloader downloader = null)
         {
-            _downloader = new DownloadFactory().CreateDownloader(source);
+            _downloader = downloader ?? new DownloadFactory().CreateDownloader(source);
         }
 
         public IEnumerable<ICharacterData> GetCharacters(IEnumerable<string> characters = null)
