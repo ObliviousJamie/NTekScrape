@@ -1,4 +1,6 @@
-﻿namespace NTekScrape.Core.interfaces
+﻿using System.Collections.Generic;
+
+namespace NTekScrape.Core.interfaces
 {
     public interface ICharacterData
     {
