@@ -18,4 +18,13 @@
     <ProjectReference Include="..\src\NTekScrape.Core\NTekScrape.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="data\mock_rbnorway_josie.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\mock_rbnorway_lei.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
