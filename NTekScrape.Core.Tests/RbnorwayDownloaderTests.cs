@@ -129,7 +129,41 @@ namespace NTekScrape.Core.Tests
             var moveData = sut.Download(character).Moves;
 
             //Assert
-            Assert.Empty(moveData.Where(m => String.IsNullOrEmpty(m.Input)));
+            Assert.Empty(moveData.Where(m => String.IsNullOrWhiteSpace(m.Input)));
+        }
+
+        [Theory]
+        [InlineData("josie")]
+        [InlineData("lei")]
+        public void Download_CallCharacters_NoHeader(string character)
+        {
+            // Arrange
+            var htmlMock = new Mock<IHtmlWebWrapper>();
+            htmlMock.Setup(doc => doc.GetHtmlDocument((It.IsAny<string>()))).Returns(LoadDocument(character));
+
+            var sut = new RbnorwayDownloader(htmlMock.Object);
+
+            // Act
+            var moveData = sut.Download(character).Moves;
+
+            //Assert
+            Assert.Empty(moveData.Where(m => m.Input == "Command"));
+        }
+
+        [Fact]
+        public void Download_CallWithJosie_ReturnsCorrectCount()
+        {
+            // Arrange
+            var htmlMock = new Mock<IHtmlWebWrapper>();
+            htmlMock.Setup(doc => doc.GetHtmlDocument((It.IsAny<string>()))).Returns(LoadDocument("josie"));
+
+            var sut = new RbnorwayDownloader(htmlMock.Object);
+
+            // Act
+            var moveData = sut.Download("josie").Moves;
+
+            //Assert
+            Assert.Equal(101, moveData.Count());
         }
 
         private HtmlDocument LoadDocument(string postfix)
