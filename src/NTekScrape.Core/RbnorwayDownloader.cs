@@ -1,5 +1,4 @@
-﻿using HtmlAgilityPack;
-using NTekScrape.Core.interfaces;
+﻿using NTekScrape.Core.interfaces;
 using NTekScrape.Core.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,15 +42,11 @@ namespace NTekScrape.Core
                     Properties = moveProperties[7].InnerText,
                 };
 
-                commands.Add(command);
+                if(!string.IsNullOrWhiteSpace(command.Input) && command.Input != "Command")
+                    commands.Add(command);
             }
-            var characterData = new CharacterData
-            {
-                Name = character,
-                Moves = commands
-            };
 
-            return characterData;
+            return new CharacterData { Name = character, Moves = commands };
         }
     }
 }
