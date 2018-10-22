@@ -49,4 +49,4 @@ namespace NTekScrape.Core
             return new Moveset { Name = character, Moves = commands };
         }
     }
-}}
+}
