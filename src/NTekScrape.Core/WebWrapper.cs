@@ -3,9 +3,9 @@ using HtmlAgilityPack;
 
 namespace NTekScrape.Core
 {
-    class WebWrapper : IHtmlWebWrapper
+    internal class WebWrapper : IHtmlWebWrapper
     {
-        private HtmlDocument _htmlDocument;
+        private readonly HtmlDocument _htmlDocument;
 
         public WebWrapper()
         {

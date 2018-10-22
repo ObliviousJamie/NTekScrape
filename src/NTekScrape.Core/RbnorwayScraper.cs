@@ -7,10 +7,10 @@ namespace NTekScrape.Core
 {
     public class RbnorwayScraper : IScraper
     {
-        private const string PREFIX = @"http://rbnorway.org/";
-        private const string POSTFIX = @"-t7-frames";
+        private const string Prefix = @"http://rbnorway.org/";
+        private const string Postfix = @"-t7-frames";
 
-        private IHtmlWebWrapper _htmlWeb;
+        private readonly IHtmlWebWrapper _htmlWeb;
 
         public RbnorwayScraper(IHtmlWebWrapper htmlWeb)
         {
@@ -20,7 +20,7 @@ namespace NTekScrape.Core
         //TODO add basic and/or special option
         public IMoveset Download(string character)
         {
-            var doc = _htmlWeb.GetHtmlDocument($"{PREFIX}/{character}{POSTFIX}");
+            var doc = _htmlWeb.GetHtmlDocument($"{Prefix}/{character}{Postfix}");
 
             // Select all special moves
             var specialMovesTrElement = doc.DocumentNode.SelectNodes("(//tbody)[1]");

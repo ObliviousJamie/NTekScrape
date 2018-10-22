@@ -5,7 +5,7 @@ namespace NTekScrape.Core
 {
     class RbnorwayFetcher : IHtmlWebWrapper
     {
-        private HtmlDocument _htmlDocument;
+        private readonly HtmlDocument _htmlDocument;
 
         public RbnorwayFetcher()
         {

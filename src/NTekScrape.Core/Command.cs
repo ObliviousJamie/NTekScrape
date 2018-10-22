@@ -2,7 +2,7 @@
 
 namespace NTekScrape.Core
 {
-    class Command : ICommand
+    internal class Command : ICommand
     {
         public string Input { get; set; }
 

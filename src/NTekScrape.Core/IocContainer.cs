@@ -4,21 +4,21 @@ using SimpleInjector;
 
 namespace NTekScrape.Core
 {
-    public class IocContainer
+    internal class IocContainer
     {
-        public readonly Container container;
+        public readonly Container Container;
 
         public IocContainer(FrameDataSource dataSource)
         {
-            container = new Container();
-            RegisterAll(dataSource);
+            Container = new Container();
+            RegisterAll();
         }
 
-        private void RegisterAll(FrameDataSource dataSource)
+        private void RegisterAll()
         {
-            container.Register<IScraper, RbnorwayScraper>();
-            container.Register<IHtmlWebWrapper, WebWrapper>();
-            container.Verify();
+            Container.Register<IScraper, RbnorwayScraper>();
+            Container.Register<IHtmlWebWrapper, WebWrapper>();
+            Container.Verify();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace NTekScrape.Core
 
         public FrameDataRequester(FrameDataSource dataSource = FrameDataSource.Default)
         {
-            var container = new IocContainer(dataSource).container;
+            var container = new IocContainer(dataSource).Container;
             _downloader = container.GetInstance<IScraper>();
         }
 
