@@ -5,20 +5,20 @@ using System.Linq;
 
 namespace NTekScrape.Core
 {
-    public class RbnorwayDownloader : ICharacterDownloader
+    public class RbnorwayScraper : IScraper
     {
         private const string PREFIX = @"http://rbnorway.org/";
         private const string POSTFIX = @"-t7-frames";
 
         private IHtmlWebWrapper _htmlWeb;
 
-        public RbnorwayDownloader(IHtmlWebWrapper htmlWeb)
+        public RbnorwayScraper(IHtmlWebWrapper htmlWeb)
         {
             _htmlWeb = htmlWeb;
         }
 
         //TODO add basic and/or special option
-        public ICharacterData Download(string character)
+        public IMoveset Download(string character)
         {
             var doc = _htmlWeb.GetHtmlDocument($"{PREFIX}/{character}{POSTFIX}");
 
@@ -46,7 +46,7 @@ namespace NTekScrape.Core
                     commands.Add(command);
             }
 
-            return new CharacterData { Name = character, Moves = commands };
+            return new Moveset { Name = character, Moves = commands };
         }
     }
 }

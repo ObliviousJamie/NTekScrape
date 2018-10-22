@@ -3,11 +3,11 @@ using HtmlAgilityPack;
 
 namespace NTekScrape.Core
 {
-    class RbnorwayFetcher : IHtmlWebWrapper
+    class WebWrapper : IHtmlWebWrapper
     {
         private HtmlDocument _htmlDocument;
 
-        public RbnorwayFetcher()
+        public WebWrapper()
         {
             _htmlDocument = new HtmlDocument();
         }

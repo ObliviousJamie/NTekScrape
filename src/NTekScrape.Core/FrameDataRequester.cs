@@ -5,17 +5,17 @@ using NTekScrape.Core.interfaces;
 
 namespace NTekScrape.Core
 {
-    public class CharacterExtractor
+    public class FrameDataRequester
     {
-        private readonly ICharacterDownloader _downloader;
+        private readonly IScraper _downloader;
 
-        public CharacterExtractor(FrameSource source = FrameSource.Default)
+        public FrameDataRequester(FrameDataSource dataSource = FrameDataSource.Default)
         {
-            var container = new IocContainer(source).container;
-            _downloader = container.GetInstance<ICharacterDownloader>();
+            var container = new IocContainer(dataSource).container;
+            _downloader = container.GetInstance<IScraper>();
         }
 
-        public IEnumerable<ICharacterData> GetCharacters(IEnumerable<string> characters = null)
+        public IEnumerable<IMoveset> GetCharacters(IEnumerable<string> characters = null)
         {
             var staticCharacters = Enum.GetValues(typeof(Character)).Cast<string>();
             characters = characters ?? staticCharacters;
@@ -26,12 +26,12 @@ namespace NTekScrape.Core
             }
         }
 
-        public ICharacterData GetCharacter(Character character)
+        public IMoveset GetCharacter(Character character)
         {
             return _downloader.Download(character.ToString().ToLower());
         }
 
-        private ICharacterData GetCharacter(string character)
+        private IMoveset GetCharacter(string character)
         {
             character = character.ToLower();
             return _downloader.Download(character);

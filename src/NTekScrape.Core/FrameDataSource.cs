@@ -1,6 +1,6 @@
 ﻿namespace NTekScrape.Core
 {
-    public enum FrameSource
+    public enum FrameDataSource
     {
         Default, Rbnorway
     }

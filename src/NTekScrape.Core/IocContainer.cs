@@ -8,16 +8,16 @@ namespace NTekScrape.Core
     {
         public readonly Container container;
 
-        public IocContainer(FrameSource source)
+        public IocContainer(FrameDataSource dataSource)
         {
             container = new Container();
-            RegisterAll(source);
+            RegisterAll(dataSource);
         }
 
-        private void RegisterAll(FrameSource source)
+        private void RegisterAll(FrameDataSource dataSource)
         {
-            container.Register<ICharacterDownloader, RbnorwayDownloader>();
-            container.Register<IHtmlWebWrapper, RbnorwayFetcher>();
+            container.Register<IScraper, RbnorwayScraper>();
+            container.Register<IHtmlWebWrapper, WebWrapper>();
             container.Verify();
         }
     }
