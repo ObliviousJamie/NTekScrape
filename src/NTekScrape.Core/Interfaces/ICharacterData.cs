@@ -4,7 +4,7 @@ namespace NTekScrape.Core.interfaces
 {
     public interface ICharacterData
     {
-        string Name { get; }
-        IEnumerable<ICommand> Moves();
+        string Name { get; set; }
+        IEnumerable<ICommand> Moves { get; set; }
     }
 }
