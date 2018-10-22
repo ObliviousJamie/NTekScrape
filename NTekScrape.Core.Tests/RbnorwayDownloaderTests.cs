@@ -16,7 +16,7 @@ namespace NTekScrape.Core.Tests
         {
             // Arrange
             var htmlMock = new Mock<IHtmlWebWrapper>();
-            htmlMock.Setup(doc => doc.GetHtmlDocument(character)).Returns(LoadDocument(character));
+            htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
             var rbnorwayDownloader = new RbnorwayDownloader(htmlMock.Object);
 
@@ -24,7 +24,7 @@ namespace NTekScrape.Core.Tests
             rbnorwayDownloader.Download(character);
 
             //Assert
-            htmlMock.Verify(h => h.GetHtmlDocument(character));
+            htmlMock.Verify(h => h.GetHtmlDocument(It.Is<string>(s => s.Contains(character))));
         }
 
         [Theory]
@@ -34,7 +34,7 @@ namespace NTekScrape.Core.Tests
         {
             // Arrange
             var htmlMock = new Mock<IHtmlWebWrapper>();
-            htmlMock.Setup(doc => doc.GetHtmlDocument(character)).Returns(LoadDocument(character));
+            htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
             var sut = new RbnorwayDownloader(htmlMock.Object);
 
@@ -43,7 +43,7 @@ namespace NTekScrape.Core.Tests
 
             //Assert
             Assert.NotNull(data.Name);
-            Assert.True(data.Moves().Any());
+            Assert.True(data.Moves.Any());
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace NTekScrape.Core.Tests
             var character = "josie";
             // Arrange
             var htmlMock = new Mock<IHtmlWebWrapper>();
-            htmlMock.Setup(doc => doc.GetHtmlDocument(character)).Returns(LoadDocument(character));
+            htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
             var sut = new RbnorwayDownloader(htmlMock.Object);
 
@@ -67,7 +67,7 @@ namespace NTekScrape.Core.Tests
 
             // Act
             var data = sut.Download(character);
-            var actual = data.Moves().FirstOrDefault(m => m.Input == expectedInput);
+            var actual = data.Moves.FirstOrDefault(m => m.Input == expectedInput);
 
             //Assert
             Assert.Equal(expectedInput, actual.Input);
@@ -86,7 +86,7 @@ namespace NTekScrape.Core.Tests
             var character = "lei";
             // Arrange
             var htmlMock = new Mock<IHtmlWebWrapper>();
-            htmlMock.Setup(doc => doc.GetHtmlDocument(character)).Returns(LoadDocument(character));
+            htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
             var sut = new RbnorwayDownloader(htmlMock.Object);
 
@@ -101,7 +101,7 @@ namespace NTekScrape.Core.Tests
 
             // Act
             var data = sut.Download(character);
-            var actual = data.Moves().FirstOrDefault(m => m.Input == expectedInput);
+            var actual = data.Moves.FirstOrDefault(m => m.Input == expectedInput);
 
             //Assert
             Assert.Equal(expectedInput, actual.Input);
@@ -121,12 +121,12 @@ namespace NTekScrape.Core.Tests
         {
             // Arrange
             var htmlMock = new Mock<IHtmlWebWrapper>();
-            htmlMock.Setup(doc => doc.GetHtmlDocument(character)).Returns(LoadDocument(character));
+            htmlMock.Setup(doc => doc.GetHtmlDocument((It.IsAny<string>()))).Returns(LoadDocument(character));
 
             var sut = new RbnorwayDownloader(htmlMock.Object);
 
             // Act
-            var moveData = sut.Download(character).Moves();
+            var moveData = sut.Download(character).Moves;
 
             //Assert
             Assert.Empty(moveData.Where(m => String.IsNullOrEmpty(m.Input)));
