@@ -1,6 +1,6 @@
-﻿using NTekScrape.Core.interfaces;
+﻿using NTekScrape.Core.Interfaces;
 
-namespace NTekScrape.Core
+namespace NTekScrape.Core.Character
 {
     internal class Command : ICommand
     {

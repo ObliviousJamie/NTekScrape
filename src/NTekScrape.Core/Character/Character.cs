@@ -1,4 +1,4 @@
-﻿namespace NTekScrape.Core
+﻿namespace NTekScrape.Core.Character
 {
     public enum Character
     {

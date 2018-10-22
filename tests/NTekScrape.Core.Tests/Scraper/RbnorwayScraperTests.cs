@@ -1,11 +1,11 @@
+using System;
+using System.Linq;
 using HtmlAgilityPack;
 using Moq;
 using NTekScrape.Core.Interfaces;
-using System;
-using System.Linq;
 using Xunit;
 
-namespace NTekScrape.Core.Tests
+namespace NTekScrape.Core.Tests.Scraper
 {
     public class RbnorwayScraperTests
     {

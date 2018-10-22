@@ -1,5 +1,4 @@
-﻿using NTekScrape.Core.interfaces;
-using NTekScrape.Core.Interfaces;
+﻿using NTekScrape.Core.Interfaces;
 using SimpleInjector;
 
 namespace NTekScrape.Core
@@ -19,6 +18,10 @@ namespace NTekScrape.Core
             Container.Register<IScraper, RbnorwayScraper>();
             Container.Register<IHtmlWebWrapper, WebWrapper>();
             Container.Verify();
+        }
+    }
+}
+er.Verify();
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using NTekScrape.Core.interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NTekScrape.Core.Interfaces;
 
-namespace NTekScrape.Core
+namespace NTekScrape.Core.Character
 {
     public class Moveset : IMoveset
     {

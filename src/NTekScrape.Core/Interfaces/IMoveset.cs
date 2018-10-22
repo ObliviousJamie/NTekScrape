@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NTekScrape.Core.interfaces
+namespace NTekScrape.Core.Interfaces
 {
     public interface IMoveset
     {

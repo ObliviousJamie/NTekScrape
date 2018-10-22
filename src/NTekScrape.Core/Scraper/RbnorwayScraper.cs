@@ -1,7 +1,7 @@
-﻿using NTekScrape.Core.interfaces;
-using NTekScrape.Core.Interfaces;
+﻿using NTekScrape.Core.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using NTekScrape.Core.Character;
 
 namespace NTekScrape.Core
 {
@@ -49,4 +49,4 @@ namespace NTekScrape.Core
             return new Moveset { Name = character, Moves = commands };
         }
     }
-}
+}}
