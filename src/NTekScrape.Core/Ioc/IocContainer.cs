@@ -1,4 +1,5 @@
 ﻿using NTekScrape.Core.Interfaces;
+using NTekScrape.Core.Parse;
 using SimpleInjector;
 
 namespace NTekScrape.Core
@@ -17,6 +18,7 @@ namespace NTekScrape.Core
         {
             Container.Register<IScraper, RbnorwayScraper>();
             Container.Register<IHtmlWebWrapper, WebWrapper>();
+            Container.Register<IParser, CharacterParser>();
             Container.Verify();
         }
     }

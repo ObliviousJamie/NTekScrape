@@ -8,16 +8,18 @@ namespace NTekScrape.Core
     public class FrameDataRequester
     {
         private readonly IScraper _downloader;
+        private readonly IParser _parser;
 
         public FrameDataRequester(FrameDataSource dataSource = FrameDataSource.Default)
         {
             var container = new IocContainer(dataSource).Container;
             _downloader = container.GetInstance<IScraper>();
+            _parser = container.GetInstance<IParser>();
         }
 
         public IEnumerable<IMoveset> GetCharacters(IEnumerable<string> characters = null)
         {
-            var staticCharacters = Enum.GetValues(typeof(Character)).Cast<string>();
+            var staticCharacters = Enum.GetValues(typeof(Character.Character)).Cast<string>();
             characters = characters ?? staticCharacters;
 
             foreach (var character in characters)
@@ -26,9 +28,10 @@ namespace NTekScrape.Core
             }
         }
 
-        public IMoveset GetCharacter(Character character)
+        public IMoveset GetCharacter(Character.Character character)
         {
-            return _downloader.Download(character.ToString().ToLower());
+            var stringCharacter = _parser.Parse(character);
+            return _downloader.Download(stringCharacter);
         }
 
         private IMoveset GetCharacter(string character)
