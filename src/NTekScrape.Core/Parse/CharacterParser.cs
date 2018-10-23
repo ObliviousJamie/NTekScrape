@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NTekScrape.Core.Character;
+﻿using System.Text;
 using NTekScrape.Core.Interfaces;
 
 namespace NTekScrape.Core.Parse
@@ -13,11 +10,11 @@ namespace NTekScrape.Core.Parse
             switch (character)
             {
                 case Character.Character.DevilJin:
-                    return "devil-jin";
+                    return SplitCharacterName(character);
                 case Character.Character.LuckyChole:
-                    return "lucky-chole";
+                    return SplitCharacterName(character);
                 case Character.Character.MasterRaven:
-                    return "master-raven";
+                    return SplitCharacterName(character);
                 default:
                     return character.ToString().ToLower();
             }
