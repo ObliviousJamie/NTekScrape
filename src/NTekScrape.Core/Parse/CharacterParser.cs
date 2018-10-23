@@ -22,9 +22,9 @@ namespace NTekScrape.Core.Parse
 
         private string SplitCharacterName(Character character)
         {
-            var camalCaseCharacter = character.ToString();
+            var camelCaseCharacter = character.ToString();
             var builder = new StringBuilder();
-            foreach (var letter in camalCaseCharacter)
+            foreach (var letter in camelCaseCharacter)
             {
                 if (char.IsUpper(letter) && builder.Length > 0)
                     builder.Append("-");
