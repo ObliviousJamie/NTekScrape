@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NTekScrape.Core.Interfaces;
+using NTekScrape.Core.Ioc;
 
 namespace NTekScrape.Core
 {
@@ -19,7 +20,7 @@ namespace NTekScrape.Core
 
         public IEnumerable<IMoveset> GetCharacters(IEnumerable<string> characters = null)
         {
-            var staticCharacters = Enum.GetValues(typeof(Character.Character)).Cast<string>();
+            var staticCharacters = Enum.GetValues(typeof(Character)).Cast<string>();
             characters = characters ?? staticCharacters;
 
             foreach (var character in characters)
@@ -28,7 +29,7 @@ namespace NTekScrape.Core
             }
         }
 
-        public IMoveset GetCharacter(Character.Character character)
+        public IMoveset GetCharacter(Character character)
         {
             var stringCharacter = _parser.Parse(character);
             return _downloader.Download(stringCharacter);

@@ -1,8 +1,9 @@
 ﻿using NTekScrape.Core.Interfaces;
 using NTekScrape.Core.Parse;
+using NTekScrape.Core.Scraper;
 using SimpleInjector;
 
-namespace NTekScrape.Core
+namespace NTekScrape.Core.Ioc
 {
     internal class IocContainer
     {

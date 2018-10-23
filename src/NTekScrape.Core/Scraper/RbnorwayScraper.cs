@@ -1,9 +1,9 @@
-﻿using NTekScrape.Core.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using NTekScrape.Core.Character;
+using NTekScrape.Core.Interfaces;
+using NTekScrape.Core.Movelist;
 
-namespace NTekScrape.Core
+namespace NTekScrape.Core.Scraper
 {
     public class RbnorwayScraper : IScraper
     {

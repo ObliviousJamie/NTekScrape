@@ -1,6 +1,6 @@
 ﻿using NTekScrape.Core.Interfaces;
 
-namespace NTekScrape.Core.Character
+namespace NTekScrape.Core.Movelist
 {
     internal class Command : ICommand
     {

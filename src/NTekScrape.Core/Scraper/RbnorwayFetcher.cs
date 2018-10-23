@@ -1,7 +1,7 @@
-﻿using NTekScrape.Core.Interfaces;
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
+using NTekScrape.Core.Interfaces;
 
-namespace NTekScrape.Core
+namespace NTekScrape.Core.Scraper
 {
     class RbnorwayFetcher : IHtmlWebWrapper
     {

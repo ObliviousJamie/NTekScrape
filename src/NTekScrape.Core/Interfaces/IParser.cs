@@ -2,6 +2,6 @@
 {
     public interface IParser
     {
-        string Parse(Character.Character character);
+        string Parse(Character character);
     }
 }
