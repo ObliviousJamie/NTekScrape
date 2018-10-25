@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NTekScrape.Core.Interfaces;
 using NTekScrape.Core.Movelist;
@@ -20,10 +21,10 @@ namespace NTekScrape.Core.Scraper
         //TODO add basic and/or special option
         public IMoveset Download(string character)
         {
-            var doc = _htmlWeb.GetHtmlDocument($"{Prefix}/{character}{Postfix}");
+            var doc = _htmlWeb.GetHtmlDocument($"{Prefix}{character}{Postfix}");
 
             // Select all special moves
-            var specialMovesTrElement = doc.DocumentNode.SelectNodes("(//tbody)[1]");
+            var specialMovesTrElement = doc.DocumentNode.SelectNodes("(//table)[1]");
 
             var commands = new List<ICommand>();
             foreach(var tr in specialMovesTrElement.Elements("tr"))

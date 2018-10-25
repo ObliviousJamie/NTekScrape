@@ -5,17 +5,16 @@ namespace NTekScrape.Core.Scraper
 {
     internal class WebWrapper : IHtmlWebWrapper
     {
-        private readonly HtmlDocument _htmlDocument;
+        private readonly HtmlWeb _htmlWeb;
 
         public WebWrapper()
         {
-            _htmlDocument = new HtmlDocument();
+            _htmlWeb = new HtmlWeb();
         }
 
         public HtmlDocument GetHtmlDocument(string url)
         {
-            _htmlDocument.LoadHtml(url);
-            return _htmlDocument;
+            return _htmlWeb.Load(url);
         }
     }
 }
