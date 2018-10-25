@@ -11,7 +11,7 @@ namespace NTekScrape.Core.Parse
             {
                 case Character.DevilJin:
                     return SplitCharacterName(character);
-                case Character.LuckyChole:
+                case Character.LuckyChloe:
                     return SplitCharacterName(character);
                 case Character.MasterRaven:
                     return SplitCharacterName(character);
@@ -23,6 +23,7 @@ namespace NTekScrape.Core.Parse
         private string SplitCharacterName(Character character)
         {
             var camelCaseCharacter = character.ToString();
+
             var builder = new StringBuilder();
             foreach (var letter in camelCaseCharacter)
             {
