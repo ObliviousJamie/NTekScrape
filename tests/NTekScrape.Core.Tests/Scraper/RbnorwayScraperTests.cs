@@ -10,6 +10,14 @@ namespace NTekScrape.Core.Tests.Scraper
 {
     public class RbnorwayScraperTests
     {
+        private ICommandComparer GetComparerMock()
+        {
+            var commandComparer = new Mock<ICommandComparer>();
+            commandComparer.Setup(comp => comp.Equals(It.IsAny<ICommand>(), It.IsAny<ICommand>())).Returns(false);
+
+            return commandComparer.Object;
+        }
+
         [Theory]
         [InlineData("josie")]
         [InlineData("lei")]
@@ -19,7 +27,7 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
-            var rbnorwayDownloader = new RbnorwayScraper(htmlMock.Object);
+            var rbnorwayDownloader = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             // Act
             rbnorwayDownloader.Download(character);
@@ -37,7 +45,7 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
-            var sut = new RbnorwayScraper(htmlMock.Object);
+            var sut = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             // Act
             var data = sut.Download(character);
@@ -55,7 +63,7 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
-            var sut = new RbnorwayScraper(htmlMock.Object);
+            var sut = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             var expectedInput = "1, 2, 3";
             var expectedHitLevel = "h, h, m";
@@ -89,7 +97,7 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument(It.IsAny<string>())).Returns(LoadDocument(character));
 
-            var sut = new RbnorwayScraper(htmlMock.Object);
+            var sut = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             var expectedInput = "3";
             var expectedHitLevel = "h";
@@ -124,7 +132,7 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument((It.IsAny<string>()))).Returns(LoadDocument(character));
 
-            var sut = new RbnorwayScraper(htmlMock.Object);
+            var sut = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             // Act
             var moveData = sut.Download(character).Moves;
@@ -142,7 +150,7 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument((It.IsAny<string>()))).Returns(LoadDocument(character));
 
-            var sut = new RbnorwayScraper(htmlMock.Object);
+            var sut = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             // Act
             var moveData = sut.Download(character).Moves;
@@ -158,13 +166,13 @@ namespace NTekScrape.Core.Tests.Scraper
             var htmlMock = new Mock<IHtmlWebWrapper>();
             htmlMock.Setup(doc => doc.GetHtmlDocument((It.IsAny<string>()))).Returns(LoadDocument("josie"));
 
-            var sut = new RbnorwayScraper(htmlMock.Object);
+            var sut = new RbnorwayScraper(htmlMock.Object, GetComparerMock());
 
             // Act
             var moveData = sut.Download("josie").Moves;
 
             //Assert
-            Assert.Equal(101, moveData.Count());
+            Assert.Equal(158, moveData.Count());
         }
 
         private HtmlDocument LoadDocument(string postfix)
